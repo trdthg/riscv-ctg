@@ -2,12 +2,13 @@
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
 Please note the header `WIP-DEV` is to always remain indicating the changes done on the dev branch.
 Only when a release to the main branch is done, the contents of the WIP-DEV are put under a
 versioned header while the `WIP-DEV` is left empty
 
 ## [WIP-DEV]
-- Added support for zicboz extension
+- Added support for CMO extension
 
 ## [0.12.2] - 2024-03-06
 - Add Zfa support. (PR#60)

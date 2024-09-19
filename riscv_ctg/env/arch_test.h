@@ -946,12 +946,19 @@ LI(testreg,imm_val)                                                         ;\
 sub rs1,rs1,testreg                                                          ;\
 inst rs2, imm_val(rs1)                                                      ;\
 nop                                                                         ;\
-nop                                                                         
+nop
 
-#define TEST_CBO_ZERO(swreg,rs1,inst,imm_val)                               ;\
+#define TEST_CBO(swreg,rs1,inst,imm_val)                                    ;\
 LI(rs1,imm_val&(RVMODEL_CBZ_BLOCKSIZE-1))                                   ;\
 add rs1,rs1,swreg                                                           ;\
 inst (rs1)                                                                  ;\
+nop                                                                         ;\
+nop                                                                         ;\
+ADDI(swreg, swreg, RVMODEL_CBZ_BLOCKSIZE)
+
+#define TEST_PREFETCH(swreg,rs1,inst,imm_val)                               ;\
+LI(rs1,rs1_val)                                                             ;\
+inst imm_val(rs1)                                                           ;\
 nop                                                                         ;\
 nop                                                                         ;\
 ADDI(swreg, swreg, RVMODEL_CBZ_BLOCKSIZE)
